@@ -1,0 +1,28 @@
+-- Power BI DAX measures
+-- Assumes the imported table is named Sales.
+
+Total Sales = SUM(Sales[sales])
+
+Total Profit = SUM(Sales[profit])
+
+Total Orders = DISTINCTCOUNT(Sales[order_id])
+
+Total Quantity = SUM(Sales[quantity])
+
+Average Order Value =
+DIVIDE([Total Sales], [Total Orders])
+
+Profit Margin % =
+DIVIDE([Total Profit], [Total Sales]) * 100
+
+Sales LY =
+CALCULATE(
+    [Total Sales],
+    DATEADD(Sales[order_date], -1, YEAR)
+)
+
+YoY Sales Growth % =
+DIVIDE(
+    [Total Sales] - [Sales LY],
+    [Sales LY]
+) * 100

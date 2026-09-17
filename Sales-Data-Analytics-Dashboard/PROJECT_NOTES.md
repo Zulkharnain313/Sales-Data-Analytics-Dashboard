@@ -1,0 +1,1 @@
+Next step: open Power BI Desktop and follow powerbi/README_POWERBI.md to create the dashboard. A .pbix file itself cannot be generated reliably outside Power BI Desktop.
